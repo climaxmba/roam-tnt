@@ -1,5 +1,7 @@
+import Layout from "../../components/layout/Layout";
+
 // import styles from "./favourites.module.scss";
 
 export default function Favourites() {
-  return <div>Favourites</div>;
+  return <Layout>Favourites</Layout>;
 }

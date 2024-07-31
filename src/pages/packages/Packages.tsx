@@ -1,5 +1,7 @@
+import Layout from "../../components/layout/Layout";
+
 // import styles from "./listings.module.scss";
 
 export default function Packages() {
-  return <div>Listings</div>;
+  return <Layout>Packages</Layout>;
 }

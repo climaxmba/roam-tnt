@@ -1,0 +1,36 @@
+$accentcolor: aquamarine;
+
+.container {
+  color: black;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff80;
+  backdrop-filter: blur(10px);
+
+  ul {
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+
+    a {
+      color: inherit;
+      transition: border ease 1s;
+    }
+
+    .link {
+      padding-bottom: 8px;
+    }
+
+    .active {
+      padding-bottom: 8px;
+      border-bottom: 5px solid $accentcolor;
+    }
+  }
+}
