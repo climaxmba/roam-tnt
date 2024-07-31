@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import Layout from "../../components/layout/Layout";
 
 import styles from "./home.module.scss";
+import SearchForms from "../../components/searchForms/SearchForms";
 
 export default function Home() {
   return (
@@ -23,31 +24,7 @@ function Landing() {
         ullam.
       </p>
       <Button variant="contained">See Packages</Button>
-      <div className={styles.flightOffers}>
-        <h2>Search Flight Offers</h2>
-        <form action="">
-          <div className={styles.field}>
-            <label htmlFor="search-destination">Destination</label>
-            <input type="text" id="search-destination" />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="search-location">Location</label>
-            <input type="text" id="search-location" />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="search-maxprice">Max Price (EUR)</label>
-            <input type="number" id="search-maxprice" />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="search-cabin">Cabin</label>
-            <input type="text" id="search-cabin" />
-          </div>
-
-          <Button variant="outlined" type="submit">
-            Search
-          </Button>
-        </form>
-      </div>
+      <SearchForms />
     </main>
   );
 }

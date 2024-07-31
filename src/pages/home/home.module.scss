@@ -4,10 +4,10 @@ $navbar-offset: 90px;
   padding: 1rem;
   padding-top: $navbar-offset; //Offset navbar
   min-height: calc(100lvh - $navbar-offset);
-  background-color: lightcyan;
+  background: linear-gradient(60deg, lightcyan, aquamarine);
   text-align: center;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -20,31 +20,6 @@ $navbar-offset: 90px;
   p {
     max-width: 80vw;
     margin: 0;
-  }
-
-  .field {
-    display: grid;
-    gap: 8px;
-  }
-
-  .flightOffers {
-    border-radius: 15px;
-    padding: 1rem;
-    background-color: white;
-
-    h2 {
-      margin: 0;
-      margin-bottom: 1rem;
-    }
-
-    form {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      text-align: left;
-    }
   }
 }
 
