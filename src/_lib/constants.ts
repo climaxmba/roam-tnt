@@ -1,6 +1,6 @@
 export const paths = {
   root: "/",
-  listings: "listings",
+  packages: "packages",
   details: ":package",
   login: "login",
   favourites: "favourites",
