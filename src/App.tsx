@@ -8,6 +8,7 @@ import Login from "./pages/login/Login";
 import Details from "./pages/packages/details/Details";
 import Packages from "./pages/packages/Packages";
 import Favourites from "./pages/favourites/Favourites";
+import Search from "./pages/search/Search";
 
 import "./index.scss";
 
@@ -75,6 +76,10 @@ export default function App() {
     {
       path: paths.favourites,
       element: <Favourites />,
+    },
+    {
+      path: paths.search,
+      element: <Search />,
     },
   ]);
 

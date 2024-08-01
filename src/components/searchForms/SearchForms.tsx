@@ -1,7 +1,6 @@
-import Button from "@mui/material/Button";
+import { Button, TextField } from "@mui/material";
 
 import styles from "./searchForms.module.scss";
-import { TextField } from "@mui/material";
 
 export default function SearchForms() {
   return (
@@ -13,19 +12,30 @@ export default function SearchForms() {
           placeholder="Where to?"
           variant="standard"
           name="searchDestination"
+          required
         />
         <TextField
           label="Location"
           placeholder="Where are you?"
           variant="standard"
           name="searchLocation"
+          required
         />
         <TextField
-          label="Max Price (EUR)"
-          name="searchMaxPrice"
+          label="Departure date"
+          name="searchDapartureDate"
           variant="standard"
+          required
         />
-        <TextField label="Cabin" name="searchCabin" variant="standard" />
+        <TextField
+          label="Adults"
+          name="searchAdults"
+          variant="standard"
+          type="number"
+          inputProps={{ max: 9 }}
+          defaultValue={1}
+          required
+        />
 
         <Button variant="outlined" type="submit">
           Search

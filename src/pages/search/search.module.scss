@@ -1,0 +1,17 @@
+$navbar-offset: 90px;
+
+.container {
+  padding-top: $navbar-offset; //Offset navbar
+  min-height: calc(100lvh - $navbar-offset);
+
+  & > * {
+    margin: 0 clamp(1rem, 10%, 320px);
+  }
+}
+
+.list {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
