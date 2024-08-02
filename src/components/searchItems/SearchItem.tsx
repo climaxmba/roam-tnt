@@ -1,4 +1,4 @@
-import { Alarm, Flight } from "@mui/icons-material";
+import { Flight } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
 import styles from "./searchItems.module.scss";
@@ -23,22 +23,16 @@ export function FlightItem() {
       </div>
 
       <div className={styles.durationContainer}>
-        <div>
-          <Alarm />
-          <span>15h 5mins</span>
-        </div>
-        <div>
-          <span>Stops</span>
-          <span>2</span>
-        </div>
+        <span>Duration: 15h 5mins</span>
+        <span>Stops: 2</span>
       </div>
 
       <div>
-        <span>ECONOMY</span>
-        <span>850USD</span>
+        <span className={styles.cabinClass}>ECONOMY</span>
+        <span className={styles.price}>850 USD</span>
       </div>
 
-      <Button sx={{textTransform: "uppercase"}}>Book Now</Button>
+      <Button variant="contained">Book Now</Button>
     </div>
   );
 }

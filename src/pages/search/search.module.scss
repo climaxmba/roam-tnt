@@ -3,6 +3,7 @@ $navbar-offset: 90px;
 .container {
   padding-top: $navbar-offset; //Offset navbar
   min-height: calc(100lvh - $navbar-offset);
+  background-color: #f0f0f0;
 
   & > * {
     margin: 0 clamp(1rem, 10%, 320px);

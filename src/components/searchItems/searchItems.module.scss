@@ -1,5 +1,62 @@
 .flightItemContainer {
   padding: 1rem;
-  background-color: aliceblue;
   border-radius: 8px;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 1px 2px 3px #00000010;
+
+  & > *:not(h2):not(button) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > *:last-child {
+      text-align: right;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .pathContainer {
+    .pathGroup {
+      display: grid;
+
+      &:last-child {
+        text-align: right;
+      }
+
+      :where(& > *:first-child, & > *:last-child) {
+        font-size: small;
+      }
+
+      & > *:nth-child(2) {
+        font-weight: 700;
+        font-size: large;
+      }
+    }
+  }
+
+  .durationContainer {
+    & > * {
+      display: grid;
+    }
+  }
+
+  .cabinClass {
+    border-radius: 4px;
+    padding: 0 4px;
+    border: 1px solid;
+    background-color: #dcfff3;
+    font-size: small;
+  }
+
+  .price {
+    font-size: large;
+    font-weight: 700;
+    color: green;
+  }
 }
