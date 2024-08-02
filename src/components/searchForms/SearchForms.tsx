@@ -1,30 +1,79 @@
+import { useEffect, useState, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 
 import styles from "./searchForms.module.scss";
 
+interface SearchParams {
+  searchDestination: string;
+  searchLocation: string;
+  searchDapartureDate: string;
+  searchAdults: string;
+}
+
 export default function SearchForms() {
+  const isInSearchPage = location.pathname.includes("search");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    searchDestination,
+    searchLocation,
+    searchDapartureDate,
+    searchAdults,
+  } = Object.fromEntries(searchParams);
+  const [queriedData, setQueriedData] = useState<SearchParams>({
+    searchAdults,
+    searchDapartureDate,
+    searchDestination,
+    searchLocation,
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    const form = e.target;
+    const data = Object.fromEntries(
+      new FormData(form as HTMLFormElement)
+    ) as unknown as SearchParams;
+    if (isInSearchPage) {
+      setQueriedData(data);
+      e.preventDefault();
+    }
+  };
+
+  const search = (data: SearchParams) => {
+    // Refresh List
+    console.log(data);
+  };
+
+  useEffect(() => {
+    search(queriedData);
+    setSearchParams({});
+  }, [queriedData, setSearchParams]);
+
   return (
     <div className={styles.flightOffers}>
       <h2>Search Flight Offers</h2>
-      <form action="">
+      <form action="/search" onSubmit={handleSubmit}>
         <TextField
           label="Destination"
           placeholder="Where to?"
           variant="standard"
           name="searchDestination"
+          defaultValue={searchDestination}
           required
         />
         <TextField
           label="Location"
+          name="searchLocation"
           placeholder="Where are you?"
           variant="standard"
-          name="searchLocation"
+          defaultValue={searchLocation}
           required
         />
         <TextField
           label="Departure date"
           name="searchDapartureDate"
+          type="date"
           variant="standard"
+          defaultValue={searchDapartureDate}
           required
         />
         <TextField
@@ -33,7 +82,7 @@ export default function SearchForms() {
           variant="standard"
           type="number"
           inputProps={{ max: 9 }}
-          defaultValue={1}
+          defaultValue={searchAdults || 1}
           required
         />
 
