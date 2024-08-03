@@ -1,4 +1,9 @@
-import { Button } from "@mui/material";
+import {
+  // Accordion,
+  // AccordionDetails,
+  // AccordionSummary,
+  Button,
+} from "@mui/material";
 import Layout from "../../components/layout/Layout";
 
 import styles from "./home.module.scss";
@@ -24,6 +29,10 @@ function Landing() {
         ullam.
       </p>
       <Button variant="contained">See Packages</Button>
+      {/* <Accordion>
+        <AccordionSummary expandIcon="b">h</AccordionSummary>
+        <AccordionDetails>d</AccordionDetails>
+      </Accordion> */}
       <SearchForms />
     </main>
   );

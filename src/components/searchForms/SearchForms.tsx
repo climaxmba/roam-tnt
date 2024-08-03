@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 
 import styles from "./searchForms.module.scss";
+import { DateField } from "@mui/x-date-pickers";
 
 interface SearchParams {
   searchDestination: string;
@@ -68,12 +69,13 @@ export default function SearchForms() {
           defaultValue={searchLocation}
           required
         />
-        <TextField
+        <DateField
           label="Departure date"
           name="searchDapartureDate"
-          type="date"
           variant="standard"
-          defaultValue={searchDapartureDate}
+          defaultValue={
+            searchDapartureDate ? new Date(searchDapartureDate) : new Date()
+          }
           required
         />
         <TextField

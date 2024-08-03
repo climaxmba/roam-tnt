@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
+
 import { paths } from "./_lib/constants";
 import Home from "./pages/home/Home";
 import Error from "./pages/404/Error";
@@ -46,7 +49,7 @@ const theme = createTheme({
             backgroundColor: "#effaf",
             borderColor: "darkcyan",
           },
-        }
+        },
       },
     },
   },
@@ -85,7 +88,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <RouterProvider router={router} />
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }
