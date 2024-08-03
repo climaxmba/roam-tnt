@@ -45,9 +45,9 @@ export default function SearchForms() {
   };
 
   useEffect(() => {
-    search(queriedData);
+    isInSearchPage && search(queriedData);
     setSearchParams({});
-  }, [queriedData, setSearchParams]);
+  }, [isInSearchPage, queriedData, setSearchParams]);
 
   return (
     <div className={styles.flightOffers}>
