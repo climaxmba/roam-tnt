@@ -22,11 +22,10 @@ export default function Home() {
 function Landing() {
   return (
     <main className={styles.landing}>
-      <h1>Heading Text</h1>
+      <h1>Experience the <span className={styles.exotic}>Exotic</span> Beauty!</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis suscipit
-        incidunt reiciendis et nesciunt perspiciatis vero non molestias iste
-        ullam.
+        Planning a trip for work or vacation?
+        At Roam Tavel & Tours, we've got your back!
       </p>
       <Button variant="contained">See Packages</Button>
       {/* <Accordion>

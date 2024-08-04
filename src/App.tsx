@@ -35,6 +35,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
+          ":focus": {
+            outline: "none"
+          }
         },
         contained: {
           backgroundColor: "darkcyan",

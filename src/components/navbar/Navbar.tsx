@@ -7,7 +7,7 @@ import styles from "./navbar.module.scss";
 export default function Navbar() {
   return (
     <nav className={styles.container}>
-      <span>Logo</span>
+      <span>Roam T&T</span>
       <ul>
         <li>
           <NavLink

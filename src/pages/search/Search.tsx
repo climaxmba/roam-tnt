@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import SearchForms from "../../components/searchForms/SearchForms";
 import { FlightItem } from "../../components/searchItems/SearchItem";
+import travelsAPI from "../../_lib/modules/travelsAPI";
 
 import styles from "./search.module.scss";
-import travelsAPI from "../../_lib/modules/travelsAPI";
 
 export default function Search() {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -18,18 +18,20 @@ export default function Search() {
   const [flightOffers, setFlightOffers] = useState<FlightOffer[] | []>([]);
 
   useEffect(() => {
-    setLoading(true);
-    (async () => {
-      try {
-        const data = await travelsAPI.getFlights(searchParams);
-        data && setFlightOffers(data);
-        setLoading(false);
-        setError(null);
-      } catch (error) {
-        setLoading(false);
-        setError(error as Error);
-      }
-    })();
+    if (searchParams.searchAdults) {
+      setLoading(() => true);
+      (async () => {
+        try {
+          const data = await travelsAPI.getFlights(searchParams);
+          data && setFlightOffers(data);
+          setLoading(() => false);
+          setError(() => null);
+        } catch (error) {
+          setLoading(() => false);
+          setError(() => error as Error);
+        }
+      })();
+    } else setLoading(() => false);
   }, [searchParams]);
 
   return (
