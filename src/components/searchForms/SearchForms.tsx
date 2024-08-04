@@ -1,26 +1,24 @@
+import type React from "react";
 import { useEffect, useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-
-import styles from "./searchForms.module.scss";
 import { DateField } from "@mui/x-date-pickers";
 
-interface SearchParams {
-  searchDestination: string;
-  searchLocation: string;
-  searchDapartureDate: string;
-  searchAdults: string;
-}
+import styles from "./searchForms.module.scss";
 
-export default function SearchForms() {
+export default function SearchForms({
+  setSearchParams,
+}: {
+  setSearchParams?: React.Dispatch<React.SetStateAction<SearchParams>>;
+}) {
   const isInSearchPage = location.pathname.includes("search");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const {
     searchDestination,
     searchLocation,
     searchDapartureDate,
     searchAdults,
-  } = Object.fromEntries(searchParams);
+  } = Object.fromEntries(params);
   const [queriedData, setQueriedData] = useState<SearchParams>({
     searchAdults,
     searchDapartureDate,
@@ -39,40 +37,36 @@ export default function SearchForms() {
     }
   };
 
-  const search = (data: SearchParams) => {
-    // Refresh List
-    console.log(data);
-  };
-
   useEffect(() => {
-    isInSearchPage && search(queriedData);
-    setSearchParams({});
-  }, [isInSearchPage, queriedData, setSearchParams]);
+    isInSearchPage && setSearchParams && setSearchParams(queriedData);
+    setParams({});
+  }, [isInSearchPage, queriedData, setParams, setSearchParams]);
 
   return (
     <div className={styles.flightOffers}>
       <h2>Search Flight Offers</h2>
       <form action="/search" onSubmit={handleSubmit}>
         <TextField
-          label="Destination"
-          placeholder="Where to?"
-          variant="standard"
-          name="searchDestination"
-          defaultValue={searchDestination}
-          required
-        />
-        <TextField
-          label="Location"
+          label="Location code"
           name="searchLocation"
           placeholder="Where are you?"
           variant="standard"
           defaultValue={searchLocation}
           required
         />
+        <TextField
+          label="Destination code"
+          placeholder="Where to?"
+          variant="standard"
+          name="searchDestination"
+          defaultValue={searchDestination}
+          required
+        />
         <DateField
           label="Departure date"
           name="searchDapartureDate"
           variant="standard"
+          format="yyyy-MM-dd"
           defaultValue={
             searchDapartureDate ? new Date(searchDapartureDate) : new Date()
           }
