@@ -2,6 +2,10 @@ import { Button } from "@mui/material";
 import Layout from "../../components/layout/Layout";
 import SearchForms from "../../components/searchForms/SearchForms";
 
+import landingBgS from "../../assets/landing/landingbgS.jpg";
+import landingBgM from "../../assets/landing/landingbgM.jpg";
+import landingBgL from "../../assets/landing/landingbgL.jpg";
+
 import burjKhalifa from "../../assets/destinations/Burjkhalifa.jpg";
 import ginza from "../../assets/destinations/Ginza.jpg";
 import niagaraFalls from "../../assets/destinations/NiagaraFalls.jpg";
@@ -22,6 +26,12 @@ export default function Home() {
 function Landing() {
   return (
     <main className={styles.landing}>
+      <img
+        className={styles.img}
+        src={landingBgS}
+        srcSet={`${landingBgS} 640w, ${landingBgM} 1024w, ${landingBgL} 1440w`}
+        alt=""
+      />
       <h1>
         Experience the <span className={styles.exotic}>Exotic</span> Beauty!
       </h1>
@@ -69,8 +79,7 @@ function PopularDestinations() {
       location: "Lagos, NG",
       img: {
         src: victoriaIsland,
-        creditURL:
-          "https://x.com/funshographix/status/1742624206410412380",
+        creditURL: "https://x.com/funshographix/status/1742624206410412380",
       },
     },
     {
