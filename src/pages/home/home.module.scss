@@ -47,8 +47,64 @@ $navbar-offset: 90px;
   padding-top: $navbar-offset; //Offset navbar
   min-height: 100lvh;
   text-align: center;
+  background-color: whitesmoke;
 
-  h1 {
+  :where(h1, h2) {
     margin: 0;
+  }
+
+  .destinationContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 1rem;
+    gap: 1em 1.5rem;
+    justify-content: center;
+
+    p {
+      margin: 0;
+    }
+
+    .place {
+      height: clamp(240px, 80vh, 360px);
+      flex: 0 0 250px;
+      border-radius: 30%;
+      background-color: white;
+      overflow-x: hidden;
+
+      .img {
+        background-color: aquamarine;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 50%;
+        position: relative;
+
+        a {
+          text-decoration: underline;
+          color: white;
+          text-shadow: -1px 1px black;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding: 4px 8px;
+          font-weight: 400;
+          font-size: small;
+        }
+      }
+
+      .textGroup {
+        padding: 1rem 2.5rem;
+        text-align: left;
+
+        &>*:first-child {
+          font-size: xx-large;
+          font-weight: 700;
+        }
+
+        &>*:nth-child(2) {
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
