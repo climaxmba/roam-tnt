@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  border-radius: 15px;
+  background-color: white;
+  margin-bottom: 1rem;
+  overflow-x: hidden;
+
+  a {
+    color: inherit;
+    font-weight: unset;
+  }
+
+  img {
+    background-color: aliceblue;
+    object-fit: cover;
+    height: 100% !important;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: large;
+  }
+
+  &>*:last-child {
+    flex: 1;
+    padding: 1rem;
+    display: grid;
+    gap: 4px;
+  }
+
+  .features {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    & > * {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #d7fff2;
+      padding: 0.5rem;
+      border-radius: 15px;
+    }
+  }
+}
