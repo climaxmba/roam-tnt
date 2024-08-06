@@ -145,3 +145,31 @@ interface FlightOffersResponse {
     };
   }[];
 }
+
+interface HotelOffer {
+  image: string;
+  title: string;
+  description: string;
+  pricePerNight: number;
+  currency: string;
+}
+
+interface TourOffer {
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  currency: string;
+}
+
+interface TravelPackage {
+  title: string;
+  description: string;
+  location: string;
+  totalPrice: number;
+  currency: string;
+  rating: number;
+  flight?: FlightOffer;
+  hotel?: HotelOffer;
+  tour?: TourOffer;
+}

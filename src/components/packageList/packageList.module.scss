@@ -1,0 +1,28 @@
+.packages,
+.collapsablePackages {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+
+  & > * {
+    width: clamp(200px, 100%, 600px);
+  }
+}
+
+.searchAndFilter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  & > *:first-child {
+    flex: 1;
+  }
+}
+
+@container package-sectn (width < 800px) {
+  .collapsablePackages {
+    display: none;
+  }
+}

@@ -40,10 +40,6 @@ function Landing() {
         your back!
       </p>
       <Button variant="contained">See Packages</Button>
-      {/* <Accordion>
-        <AccordionSummary expandIcon="b">h</AccordionSummary>
-        <AccordionDetails>d</AccordionDetails>
-      </Accordion> */}
       <SearchForms />
     </main>
   );
