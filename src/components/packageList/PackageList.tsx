@@ -1,9 +1,10 @@
-import { SetStateAction, useEffect, useState } from "react";
+import type React from "react";
+import { type SetStateAction, useEffect, useState } from "react";
+import { Button, TextField } from "@mui/material";
 import PackageItem from "../packageItem/PackageItem";
 // import { useSelector } from "react-redux";
 
 import styles from "./packageList.module.scss";
-import { Button, TextField } from "@mui/material";
 
 /** Requires container style: `{container: package-sectn / inline-size;}` */
 export default function PackageList({
@@ -14,19 +15,28 @@ export default function PackageList({
   hasPackageId: boolean;
 }) {
   const [loading, setLoading] = useState(true);
-  const [packages, setPackages] = useState([]);
+  const [packages, setPackages] = useState<PackageItem[] | []>([]);
   const [error, setError] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     (async () => {
       try {
-        setPackages((await getProducts()) as SetStateAction<never[]>);
+        setPackages(
+          (await getProducts()) as SetStateAction<PackageItem[] | []>
+        );
       } catch {
         setError(true);
       }
       setLoading(false);
     })();
   }, [getProducts]);
+
+  const filteredPackage = searchQuery
+    ? packages.filter((pkg) =>
+        pkg.title.toLocaleLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : packages;
 
   return (
     <>
@@ -41,28 +51,40 @@ export default function PackageList({
           }
         >
           <h1>Travel packages</h1>
-          <SearchAndFilter />
-          {packages.map((_, i) => (
+          <SearchAndFilter query={searchQuery} setQuery={setSearchQuery} />
+          {filteredPackage.length ? filteredPackage.map((pkg) => (
             <PackageItem
-              image="https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate."
-              location="Paris, FR"
-              hotelNightsCount={8}
-              toursCount={2}
-              rating={3}
-              key={i}
+              key={pkg.id}
+              id={pkg.id}
+              image={pkg.image}
+              title={pkg.title}
+              location={pkg.location}
+              hotelNightsCount={pkg.hotelNightsCount}
+              toursCount={pkg.toursCount}
+              rating={pkg.rating}
             />
-          ))}
+          )) : <p>No results!</p>}
         </div>
       )}
     </>
   );
 }
 
-function SearchAndFilter() {
+function SearchAndFilter({
+  query,
+  setQuery,
+}: {
+  query: string;
+  setQuery: React.Dispatch<SetStateAction<string>>;
+}) {
   return (
     <div className={styles.searchAndFilter}>
-      <TextField variant="filled" label="Search Packages" />
+      <TextField
+        variant="filled"
+        label="Search Packages"
+        onChange={(e) => setQuery(e.target.value)}
+        value={query}
+      />
       <Button
         sx={{
           textTransform: "uppercase",

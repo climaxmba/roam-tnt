@@ -3,6 +3,7 @@ import Layout from "../../components/layout/Layout";
 import PackageList from "../../components/packageList/PackageList";
 
 import styles from "./packages.module.scss";
+import travelsAPI from "../../_lib/modules/travelsAPI";
 
 export default function Packages() {
   const { packageId } = useParams();
@@ -11,7 +12,7 @@ export default function Packages() {
     <Layout>
       <section className={styles.container}>
         <PackageList
-          getProducts={() => Promise.resolve(["", " ", ""])}
+          getProducts={() => Promise.resolve(travelsAPI.getTravelPackages())}
           hasPackageId={packageId ? true : false}
         />
 
