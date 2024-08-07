@@ -2,9 +2,13 @@ import { useParams } from "react-router-dom";
 import {
   AirplaneTicketOutlined,
   ArrowDropDown,
+  BreakfastDiningTwoTone,
   HotelOutlined,
+  PoolTwoTone,
+  SpaTwoTone,
   StarBorderOutlined,
   TourOutlined,
+  WifiTwoTone,
 } from "@mui/icons-material";
 import {
   Accordion,
@@ -74,7 +78,51 @@ export default function Details() {
                 </span>
               </AccordionSummary>
               <AccordionDetails>
-                {packageRequested?.hotel.title}
+                <div
+                  style={{
+                    fontWeight: 500,
+                    textAlign: "center",
+                    fontSize: "large",
+                  }}
+                >
+                  {packageRequested.hotel.title}
+                </div>
+                <div className={styles.ammenities}>
+                  {packageRequested.hotel.ammenities.breakfast ? (
+                    <div>
+                      <BreakfastDiningTwoTone
+                        sx={{ fontSize: 50, color: "orange" }}
+                      />
+                      Breakfast
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {packageRequested.hotel.ammenities.freeWifi ? (
+                    <div>
+                      <WifiTwoTone sx={{ fontSize: 50, color: "dimgrey" }} />
+                      Free Wifi
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {packageRequested.hotel.ammenities.pool ? (
+                    <div>
+                      <PoolTwoTone sx={{ fontSize: 50, color: "royalblue" }} />
+                      Pool
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {packageRequested.hotel.ammenities.spa ? (
+                    <div>
+                      <SpaTwoTone sx={{ fontSize: 50, color: "salmon" }} />
+                      Spa
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </AccordionDetails>
             </Accordion>
           ) : (
@@ -89,7 +137,14 @@ export default function Details() {
                 </span>
               </AccordionSummary>
               <AccordionDetails>
-                {packageRequested.tours[0].title}
+                {packageRequested.tours.map((tour, i) => (
+                  <Accordion key={i}>
+                    <AccordionSummary expandIcon={<ArrowDropDown />}>
+                      <span style={{ fontWeight: 500 }}>{tour.title}</span>
+                    </AccordionSummary>
+                    <AccordionDetails>{tour.description}</AccordionDetails>
+                  </Accordion>
+                ))}
               </AccordionDetails>
             </Accordion>
           ) : (
@@ -102,10 +157,15 @@ export default function Details() {
                 <AirplaneTicketOutlined /> Flight
               </span>
             </AccordionSummary>
-            <AccordionDetails>{packageRequested?.flight || "None"}</AccordionDetails>
+            <AccordionDetails>
+              {packageRequested?.flight || "None"}
+            </AccordionDetails>
           </Accordion>
 
-          <Rating value={packageRequested?.rating} size="small" readOnly />
+          <div className={styles.ratingContainer}>
+            <h2>Package Rating</h2>
+            <Rating value={packageRequested?.rating} size="small" readOnly />
+          </div>
         </section>
       )}
     </>
