@@ -1,57 +1,136 @@
 [
   {
     "id": "1",
-    "image":
-      "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title":
-      "Trip to Paris",
+    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Trip to Paris",
+    "description": "A trip to Paris",
     "location": "Paris, FR",
     "hotelNightsCount": 7,
     "toursCount": 8,
-    "rating": 4
+    "rating": 4,
+    "price": 2000,
+    "currency": "USD",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "Blue-Metal Hotels & Suite",
+      "ammenities": {
+        "breakfast": true,
+        "pool": false,
+        "spa": true,
+        "freeWifi": false
+      }
+    },
+    "tours": [
+      {
+        "title": "Eiffle Tower",
+        "description": "Explore this historic attraction in France."
+      }
+    ]
   },
   {
     "id": "2",
-    "image":
-      "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title":
-      "A week in Canada",
+    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "A week in Canada",
+    "description": "A trip to Toronto",
     "location": "Toronto, CA",
     "hotelNightsCount": 7,
     "toursCount": 1,
-    "rating": 5
+    "rating": 5,
+    "price": 5000,
+    "currency": "USD",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "Red Maple Hotels & Suite",
+      "ammenities": {
+        "breakfast": true,
+        "pool": false,
+        "spa": false,
+        "freeWifi": true
+      }
+    },
+    "tours": [
+      {
+        "title": "Niagara falls",
+        "description": "A tour of the beautiful Niagara falls."
+      }
+    ]
   },
   {
     "id": "3",
-    "image":
-      "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title":
-      "15 days in VI",
+    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "15 days in VI",
+    "description": "A trip to Victoria Island",
     "location": "Lagos, NG",
     "hotelNightsCount": 15,
     "toursCount": 3,
-    "rating": 4
+    "rating": 4,
+    "price": 1250,
+    "currency": "USD",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "New Lagos Hotels & Suite",
+      "ammenities": {
+        "breakfast": true,
+        "pool": true,
+        "spa": false,
+        "freeWifi": true
+      }
+    },
+    "tours": [
+      {
+        "title": "Ride within the Island",
+        "description": "Feel the heart of bussiness in Lagos"
+      }
+    ]
   },
   {
     "id": "4",
-    "image":
-      "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title":
-      "Trip to Tokyo",
+    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Trip to Tokyo",
+    "description": "A trip to Tokyo",
     "location": "Tokyo, JP",
     "hotelNightsCount": 5,
     "toursCount": 2,
-    "rating": 4
+    "rating": 4,
+    "price": 2000,
+    "currency": "USD",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "Highland Hotels & Suite",
+      "ammenities": {
+        "breakfast": true,
+        "pool": false,
+        "spa": true,
+        "freeWifi": true
+      }
+    },
+    "tours": [
+      {
+        "title": "Ginza",
+        "description": "The best place to shop in Japan"
+      }
+    ]
   },
   {
     "id": "5",
-    "image":
-      "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title":
-      "Party in London",
+    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Party in London",
+    "description": "A trip to London",
     "location": "London, UK",
     "hotelNightsCount": 2,
     "toursCount": 1,
-    "rating": 3
+    "rating": 3,
+    "price": 4800,
+    "currency": "GBP",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "Harry-Potter Hotels & Suite",
+      "ammenities": {
+        "breakfast": true,
+        "pool": false,
+        "spa": false,
+        "freeWifi": true
+      }
+    }
   }
 ]

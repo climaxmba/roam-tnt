@@ -33,7 +33,7 @@ function Landing() {
         alt=""
       />
       <h1>
-        Experience the <span className={styles.exotic}>Exotic</span> Beauty!
+        Experience the <span className={styles.exotic}>Exotic</span> Lifestyle!
       </h1>
       <p>
         Planning a trip for work or vacation? At Roam Tavel & Tours, we've got

@@ -1,54 +1,113 @@
-// import styles from "./details.module.scss";
-
+import { useParams } from "react-router-dom";
 import {
   AirplaneTicketOutlined,
   ArrowDropDown,
   HotelOutlined,
+  StarBorderOutlined,
   TourOutlined,
 } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Button,
   Rating,
 } from "@mui/material";
+import { type SetStateAction, useEffect, useState } from "react";
+import travelsAPI from "../../../_lib/modules/travelsAPI";
+
+import styles from "./details.module.scss";
+import Loading, { LoadingError } from "../../../components/loading/loading";
 
 export default function Details() {
+  const { packageId } = useParams();
+  const [packages, setPackages] = useState<TravelPackage[] | []>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setPackages(
+          (await travelsAPI.getTravelPackages()) as SetStateAction<
+            TravelPackage[] | []
+          >
+        );
+      } catch {
+        setError(true);
+      }
+      setLoading(false);
+    })();
+  }, [packageId]);
+
+  const packageRequested = packages.find((pkg) => pkg.id === packageId);
+
   return (
-    <div>
-      <img src="" alt="" />
+    <>
+      {error ? (
+        <LoadingError />
+      ) : loading ? (
+        <Loading />
+      ) : (
+        <section>
+          <h1
+            className={styles.heading}
+            style={{ backgroundImage: `url(${packageRequested?.image})` }}
+          >
+            {packageRequested?.title}
+          </h1>
+          <p className={styles.description}>
+            {packageRequested?.description}
+            <div className={styles.ctaButtons}>
+              <Button variant="outlined" startIcon={<StarBorderOutlined />}>
+                Add to Favourites
+              </Button>
+              <Button variant="contained">Book Now</Button>
+            </div>
+          </p>
 
-      <div>
-        <h1>Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi illum
-          adipisci iusto necessitatibus architecto at alias blanditiis. Id,
-          natus ea.
-        </p>
-      </div>
+          {packageRequested?.hotel ? (
+            <Accordion defaultExpanded>
+              <AccordionSummary expandIcon={<ArrowDropDown />}>
+                <span className={styles.accordionTitle}>
+                  <HotelOutlined /> Hotel
+                </span>
+              </AccordionSummary>
+              <AccordionDetails>
+                {packageRequested?.hotel.title}
+              </AccordionDetails>
+            </Accordion>
+          ) : (
+            <></>
+          )}
 
-      <Rating value={4} size="small" readOnly />
+          {packageRequested?.tours ? (
+            <Accordion>
+              <AccordionSummary expandIcon={<ArrowDropDown />}>
+                <span className={styles.accordionTitle}>
+                  <TourOutlined /> Tours
+                </span>
+              </AccordionSummary>
+              <AccordionDetails>
+                {packageRequested.tours[0].title}
+              </AccordionDetails>
+            </Accordion>
+          ) : (
+            <></>
+          )}
 
-      <Accordion defaultExpanded>
-        <AccordionSummary expandIcon={<ArrowDropDown />}>
-          <HotelOutlined /> Hotel
-        </AccordionSummary>
-        <AccordionDetails>Details</AccordionDetails>
-      </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<ArrowDropDown />}>
+              <span className={styles.accordionTitle}>
+                <AirplaneTicketOutlined /> Flight
+              </span>
+            </AccordionSummary>
+            <AccordionDetails>{packageRequested?.flight || "None"}</AccordionDetails>
+          </Accordion>
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ArrowDropDown />}>
-          <TourOutlined /> Tour
-        </AccordionSummary>
-        <AccordionDetails>Details</AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary expandIcon={<ArrowDropDown />}>
-          <AirplaneTicketOutlined /> Flight
-        </AccordionSummary>
-        <AccordionDetails>Details</AccordionDetails>
-      </Accordion>
-    </div>
+          <Rating value={packageRequested?.rating} size="small" readOnly />
+        </section>
+      )}
+    </>
   );
 }

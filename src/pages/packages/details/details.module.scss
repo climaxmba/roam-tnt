@@ -1,0 +1,35 @@
+.heading {
+  color: white;
+  background-color: coral;
+  font-size: 4rem !important;
+  text-shadow: -1px 1px #000;
+  margin: 0;
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+
+.description {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.accordionTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}

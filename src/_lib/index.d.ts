@@ -146,40 +146,28 @@ interface FlightOffersResponse {
   }[];
 }
 
-interface HotelOffer {
-  image: string;
+interface TravelPackage {
+  id: string;
   title: string;
   description: string;
-  pricePerNight: number;
-  currency: string;
-}
-
-interface TourOffer {
   image: string;
-  title: string;
-  description: string;
+  location: string;
   price: number;
   currency: string;
-}
-
-interface TravelPackage {
-  title: string;
-  description: string;
-  location: string;
-  totalPrice: number;
-  currency: string;
   rating: number;
-  flight?: FlightOffer;
-  hotel?: HotelOffer;
-  tour?: TourOffer;
-}
-
-interface PackageItem {
-  id: string;
-  image: string;
-  title: string;
-  location: string;
+  flight?: string;
   hotelNightsCount: number;
-  toursCount: number;
-  rating: number;
+  hotel?: {
+    title: string;
+    ammenities: {
+      breakfast: boolean;
+      pool: boolean;
+      spa: boolean;
+      freeWifi: boolean
+    }
+  };
+  tours?: {
+    title: string;
+    description: string;
+  }[];
 }

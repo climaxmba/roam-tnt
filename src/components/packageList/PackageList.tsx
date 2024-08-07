@@ -16,7 +16,7 @@ export default function PackageList({
   hasPackageId: boolean;
 }) {
   const [loading, setLoading] = useState(true);
-  const [packages, setPackages] = useState<PackageItem[] | []>([]);
+  const [packages, setPackages] = useState<TravelPackage[] | []>([]);
   const [error, setError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -24,7 +24,7 @@ export default function PackageList({
     (async () => {
       try {
         setPackages(
-          (await getProducts()) as SetStateAction<PackageItem[] | []>
+          (await getProducts()) as SetStateAction<TravelPackage[] | []>
         );
       } catch {
         setError(true);
@@ -61,7 +61,7 @@ export default function PackageList({
               title={pkg.title}
               location={pkg.location}
               hotelNightsCount={pkg.hotelNightsCount}
-              toursCount={pkg.toursCount}
+              toursCount={pkg.tours?.length || 0}
               rating={pkg.rating}
             />
           )) : <p>No results!</p>}
