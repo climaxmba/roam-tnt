@@ -6,7 +6,7 @@ const travelsAPI = (() => {
   ): Promise<FlightOffer[] | void> {
     try {
       const response = await fetch(
-        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${params.searchLocation}&destinationLocationCode=${params.searchDestination}&departureDate=${params.searchDapartureDate}&adults=${params.searchAdults}&nonStop=false&max=3`,
+        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${params.searchLocation}&destinationLocationCode=${params.searchDestination}&departureDate=${params.searchDapartureDate}&adults=${params.searchAdults}&nonStop=false&max=15`,
         {
           headers: {
             accept: "application/vnd.amadeus+json",
@@ -63,15 +63,7 @@ const travelsAPI = (() => {
   }
   async function getTravelPackages(): Promise<FlightOffer[] | void> {
     try {
-      const response = await fetch(
-        "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2024-08-02&adults=1&nonStop=false&max=3",
-        {
-          headers: {
-            accept: "application/vnd.amadeus+json",
-            Authorization: `Bearer ${KEY}`,
-          },
-        }
-      );
+      const response = await fetch("/travelPackages.json");
       const flights = await response.json();
 
       return flights;

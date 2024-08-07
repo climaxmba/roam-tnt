@@ -173,3 +173,13 @@ interface TravelPackage {
   hotel?: HotelOffer;
   tour?: TourOffer;
 }
+
+interface PackageItem {
+  id: string;
+  image: string;
+  title: string;
+  location: string;
+  hotelNightsCount: number;
+  toursCount: number;
+  rating: number;
+}
