@@ -1,4 +1,5 @@
 $accentcolor: mediumaquamarine;
+$menu-width: 32px;
 
 .container {
   color: black;
@@ -33,5 +34,111 @@ $accentcolor: mediumaquamarine;
       padding-bottom: 8px;
       border-bottom: 5px solid $accentcolor;
     }
+  }
+}
+
+.mobileContainer {
+  display: none;
+  padding: 8px 1rem;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  background-color: #ffffff8f;
+  backdrop-filter: blur(10px);
+
+  :where(button, button:active, button:focus) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none !important;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    cursor: pointer;
+    width: $menu-width;
+    min-height: 40px;
+
+    & > * {
+      width: $menu-width;
+      height: 3px;
+      background-color: black;
+      border-radius: 6px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &.menuOpen {
+      height: $menu-width;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+        position: absolute;
+      }
+
+      & > :first-child {
+        transform: rotate(45deg);
+      }
+
+      & > :nth-child(2) {
+        display: none;
+      }
+
+      & > :last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .links {
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 50px;
+    height: 80vh;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem;
+
+    &.linksOpen {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      transition: border ease 1s;
+    }
+
+    .link {
+      padding-bottom: 8px;
+    }
+
+    .active {
+      padding-bottom: 8px;
+      border-bottom: 5px solid $accentcolor;
+    }
+  }
+}
+
+@media screen and (width < 760px) {
+  .container {
+    display: none;
+  }
+
+  .mobileContainer {
+    display: flex;
   }
 }
