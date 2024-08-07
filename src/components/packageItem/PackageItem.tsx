@@ -33,6 +33,8 @@ export default function PackageItem({
   return (
     <div
       className={styles.container}
+      role="button"
+      title="Click to see details"
       onClick={() => navigate(`${paths.packages}/${id}`)}
     >
       <img src={image} alt="Package image" height={130} width={130} />

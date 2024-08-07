@@ -19,7 +19,7 @@ $navbar-offset: 90px;
   }
 
   & > *:last-child:not(:first-child) {
-    flex: 1 0 290px;
+    flex: 2  0 290px;
   }
 }
 
@@ -30,10 +30,6 @@ $navbar-offset: 90px;
   gap: 8px;
   grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
   grid-auto-rows: max-content;
-}
-
-.packageDetails {
-  flex: 0 0 380px;
 }
 
 @media screen and (width > 600px) {
