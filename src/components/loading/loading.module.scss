@@ -1,0 +1,101 @@
+$ring-color: #20202080;
+
+@mixin root() {
+  width: 100%;
+  min-width: 300px;
+}
+
+@mixin place() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.container {
+  @include root();
+  height: 50vh;
+  pointer-events: none;
+  position: relative;
+}
+
+.ringsContainer {
+  @include place();
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rings {
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  animation: scale ease-in-out infinite;
+
+  &:first-child {
+    border: 5px solid $ring-color;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+  }
+
+  &:nth-child(2) {
+    border: 3px solid $ring-color;
+    animation-duration: 2s;
+    animation-direction: alternate;
+  }
+
+  &:last-child {
+    border: 2px solid $ring-color;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+  }
+}
+
+.text {
+  @include place();
+  transform: translate(-50%, -50%);
+  animation: fade 3s linear infinite;
+}
+
+.errorContainer {
+  @include root();
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+  justify-items: center;
+  height: 70vh;
+  .errorMessage {
+    font-size: large;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

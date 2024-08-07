@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import SearchForms from "../../components/searchForms/SearchForms";
 import { FlightItem } from "../../components/searchItems/SearchItem";
+import Loading, { LoadingError } from "../../components/loading/loading";
 import travelsAPI from "../../_lib/modules/travelsAPI";
 
 import styles from "./search.module.scss";
@@ -39,9 +40,9 @@ export default function Search() {
       <div className={styles.container}>
         <SearchForms setSearchParams={setSearchParams} />
         {loading ? (
-          <p>Loading...</p>
+          <Loading />
         ) : error ? (
-          <p>{error.message}</p>
+          <LoadingError message={error.message} />
         ) : (
           <section className={styles.list}>
             {flightOffers.map((offer) => (

@@ -5,6 +5,7 @@ import PackageItem from "../packageItem/PackageItem";
 // import { useSelector } from "react-redux";
 
 import styles from "./packageList.module.scss";
+import Loading, { LoadingError } from "../loading/loading";
 
 /** Requires container style: `{container: package-sectn / inline-size;}` */
 export default function PackageList({
@@ -41,9 +42,9 @@ export default function PackageList({
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : error ? (
-        <p>Error</p>
+        <LoadingError />
       ) : (
         <div
           className={
