@@ -1,3 +1,5 @@
+import { type SetStateAction, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
   AirplaneTicketOutlined,
@@ -17,17 +19,25 @@ import {
   Button,
   Rating,
 } from "@mui/material";
-import { type SetStateAction, useEffect, useState } from "react";
+import Loading, { LoadingError } from "../../../components/loading/loading";
 import travelsAPI from "../../../_lib/modules/travelsAPI";
 
 import styles from "./details.module.scss";
-import Loading, { LoadingError } from "../../../components/loading/loading";
+import {
+  addToFavourites,
+  removeFromFavourites,
+  RootState,
+} from "../../../_lib/redux/store";
 
 export default function Details() {
   const { packageId } = useParams();
   const [packages, setPackages] = useState<TravelPackage[] | []>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const favourites = useSelector(
+    (state: RootState) => state.user.favourites
+  );
 
   useEffect(() => {
     (async () => {
@@ -45,6 +55,19 @@ export default function Details() {
   }, [packageId]);
 
   const packageRequested = packages.find((pkg) => pkg.id === packageId);
+  const isInFavourites = favourites.find(
+    (item) => item.id === packageRequested?.id
+  )
+    ? true
+    : false;
+
+  const handleFavouritesButtonClick = () => {
+    dispatch(
+      isInFavourites
+        ? addToFavourites(packageRequested)
+        : removeFromFavourites(packageRequested?.id)
+    );
+  };
 
   return (
     <>
@@ -63,8 +86,12 @@ export default function Details() {
           <p className={styles.description}>
             {packageRequested?.description}
             <div className={styles.ctaButtons}>
-              <Button variant="outlined" startIcon={<StarBorderOutlined />}>
-                Add to Favourites
+              <Button
+                variant="outlined"
+                startIcon={<StarBorderOutlined />}
+                onClick={handleFavouritesButtonClick}
+              >
+                {isInFavourites ? "Remove" : "Add to Favourites"}
               </Button>
               <Button variant="contained">Book Now</Button>
             </div>

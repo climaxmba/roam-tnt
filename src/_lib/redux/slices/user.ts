@@ -1,29 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+type UserState = {
+  account: {
+    userName: string;
+    email: string;
+    phone: string;
+  };
+  favourites: PackageItem[] | []
+}
+
+const initialState: UserState = {
   account: {
     userName: "",
     email: "",
     phone: "",
   },
-  favourites: [
-    {
-      id: "1",
-      image: "",
-      title: "",
-      location: "",
-      hotelNightsCount: 0,
-      toursCount: 0,
-      rating: 1,
-    },
-  ],
+  favourites: [],
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state, action: PayloadAction<typeof initialState.account>) => {
       const newUser = action.payload;
       state.account = newUser;
     },
@@ -31,17 +30,17 @@ const userSlice = createSlice({
       state.account = initialState.account;
     },
     addToFavourites: (state, action) => {
-      const favouritesCopy = [...state.favourites];
+      const favouritesCopy: PackageItem[] = [...state.favourites];
       const item = action.payload;
 
       favouritesCopy.every((elem) => elem.id !== item.id) &&
         favouritesCopy.push(item);
 
-      state.favourites = favouritesCopy;
+      state.favourites = favouritesCopy as never[];
     },
     removeFromFavourites: (state, action) => {
       state.favourites = state.favourites.filter(
-        (fav) => fav.id !== action.payload
+        (fav: PackageItem) => fav.id !== action.payload
       );
     },
   },
