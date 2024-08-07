@@ -14,6 +14,8 @@ import Favourites from "./pages/favourites/Favourites";
 import Search from "./pages/search/Search";
 
 import "./index.scss";
+import { Provider } from "react-redux";
+import { store } from "./_lib/redux/store";
 
 // declare module "@mui/material/styles" {
 //   interface Theme {
@@ -36,8 +38,8 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           ":focus": {
-            outline: "none"
-          }
+            outline: "none",
+          },
         },
         contained: {
           backgroundColor: "darkcyan",
@@ -92,7 +94,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
       </LocalizationProvider>
     </ThemeProvider>
   );

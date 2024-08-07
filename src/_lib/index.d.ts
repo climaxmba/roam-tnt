@@ -146,6 +146,16 @@ interface FlightOffersResponse {
   }[];
 }
 
+interface PackageItem {
+  id: string;
+  image: string;
+  title: string;
+  location: string;
+  hotelNightsCount?: number | null;
+  toursCount: number;
+  rating: number;
+}
+
 interface TravelPackage {
   id: string;
   title: string;

@@ -1,0 +1,18 @@
+$navbar-offset: 90px;
+
+.container {
+  background-color: whitesmoke;
+  padding: 1rem;
+  padding-top: $navbar-offset;
+  min-height: 100lvh;
+
+  h1 {
+    font-size: xx-large;
+  }
+
+  .favouritesContainer {
+    display: grid;
+    gap: 1rem;
+    max-width: 800px;
+  }
+}

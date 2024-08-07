@@ -9,7 +9,7 @@ import { paths } from "../../_lib/constants";
 
 import styles from "./packageItem.module.scss";
 
-interface PackageItemProps {
+interface PackageItem {
   id: string;
   image: string;
   title: string;
@@ -27,7 +27,7 @@ export default function PackageItem({
   hotelNightsCount = null,
   toursCount,
   rating,
-}: PackageItemProps) {
+}: PackageItem) {
   const navigate = useNavigate();
 
   return (
