@@ -21,13 +21,13 @@ import {
 } from "@mui/material";
 import Loading, { LoadingError } from "../../../components/loading/loading";
 import travelsAPI from "../../../_lib/modules/travelsAPI";
-
-import styles from "./details.module.scss";
 import {
   addToFavourites,
   removeFromFavourites,
   RootState,
 } from "../../../_lib/redux/store";
+
+import styles from "./details.module.scss";
 
 export default function Details() {
   const { packageId } = useParams();
@@ -35,9 +35,7 @@ export default function Details() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
-  const favourites = useSelector(
-    (state: RootState) => state.user.favourites
-  );
+  const favourites = useSelector((state: RootState) => state.favourites.value);
 
   useEffect(() => {
     (async () => {
@@ -62,11 +60,11 @@ export default function Details() {
     : false;
 
   const handleFavouritesButtonClick = () => {
-    dispatch(
-      isInFavourites
-        ? addToFavourites(packageRequested)
-        : removeFromFavourites(packageRequested?.id)
-    );
+    if (isInFavourites) {
+      packageRequested && dispatch(removeFromFavourites(packageRequested?.id));
+    } else
+      packageRequested &&
+        dispatch(addToFavourites(packageRequested as unknown as PackageItem));
   };
 
   return (
@@ -85,7 +83,7 @@ export default function Details() {
           </h1>
           <p className={styles.description}>
             {packageRequested?.description}
-            <div className={styles.ctaButtons}>
+            <span className={styles.ctaButtons}>
               <Button
                 variant="outlined"
                 startIcon={<StarBorderOutlined />}
@@ -94,7 +92,7 @@ export default function Details() {
                 {isInFavourites ? "Remove" : "Add to Favourites"}
               </Button>
               <Button variant="contained">Book Now</Button>
-            </div>
+            </span>
           </p>
 
           {packageRequested?.hotel ? (
