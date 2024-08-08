@@ -10,6 +10,7 @@ import Details from "./pages/packages/details/Details";
 import Packages from "./pages/packages/Packages";
 import Favourites from "./pages/favourites/Favourites";
 import Search from "./pages/search/Search";
+import Booking from "./pages/booking/Booking";
 
 import { paths } from "./_lib/constants";
 import { store } from "./_lib/redux/store";
@@ -69,6 +70,10 @@ export default function App() {
     {
       path: paths.search,
       element: <Search />,
+    },
+    {
+      path: paths.booking,
+      element: <Booking />,
     },
   ]);
 

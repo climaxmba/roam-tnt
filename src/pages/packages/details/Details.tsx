@@ -1,6 +1,6 @@
 import { type SetStateAction, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   AirplaneTicketOutlined,
   ArrowDropDown,
@@ -25,7 +25,9 @@ import {
   addToFavourites,
   removeFromFavourites,
   RootState,
+  setBooking,
 } from "../../../_lib/redux/store";
+import { paths } from "../../../_lib/constants";
 
 import styles from "./details.module.scss";
 
@@ -34,8 +36,9 @@ export default function Details() {
   const [packages, setPackages] = useState<TravelPackage[] | []>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const dispatch = useDispatch();
   const favourites = useSelector((state: RootState) => state.favourites.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -67,6 +70,11 @@ export default function Details() {
         dispatch(addToFavourites(packageRequested as unknown as PackageItem));
   };
 
+  const handleBooking = () => {
+    dispatch(setBooking(packageRequested as unknown as PackageItem));
+    navigate(paths.booking);
+  };
+
   return (
     <>
       {error ? (
@@ -91,7 +99,9 @@ export default function Details() {
               >
                 {isInFavourites ? "Remove" : "Add to Favourites"}
               </Button>
-              <Button variant="contained">Book Now</Button>
+              <Button variant="contained" onClick={handleBooking}>
+                Book Now
+              </Button>
             </span>
           </p>
 

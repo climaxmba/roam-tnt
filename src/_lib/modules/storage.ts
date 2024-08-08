@@ -1,4 +1,5 @@
 type Favourites = PackageItem[] | [];
+
 interface User {
   userName: string;
   email: string;
@@ -6,10 +7,10 @@ interface User {
 }
 
 const storage = (() => {
-  function getUser(): User | void {
+  function getUser(): User {
     try {
       return (
-        JSON.parse(localStorage.getItem("user") || "") || {
+        JSON.parse(localStorage.getItem("user") as string) || {
           userName: "",
           email: "",
           phone: "",
@@ -17,11 +18,32 @@ const storage = (() => {
       );
     } catch (error) {
       console.log(error);
+      return {
+        userName: "",
+        email: "",
+        phone: "",
+      };
     }
   }
 
   function setUser(userObj: User) {
     localStorage.setItem("user", JSON.stringify(userObj));
+  }
+
+  function getBooking(): PackageItem | undefined {
+    try {
+      return JSON.parse(localStorage.getItem("booking") as string);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function setBooking(booking: PackageItem) {
+    localStorage.setItem("booking", JSON.stringify(booking));
+  }
+
+  function clearBooking() {
+    localStorage.removeItem("booking");
   }
 
   function getFavourites(): Favourites {
@@ -40,6 +62,9 @@ const storage = (() => {
   return {
     getUser,
     setUser,
+    getBooking,
+    setBooking,
+    clearBooking,
     getFavourites,
     setFavourites,
   };
