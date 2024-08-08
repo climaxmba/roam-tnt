@@ -1,0 +1,29 @@
+.titleWithClose {
+  display: flex;
+  flex-direction: column;
+
+  & > *:first-child {
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  & > *:last-child {
+    margin: 0;
+    text-align: center;
+    align-self: stretch;
+  }
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: x-small;
+  }
+}
