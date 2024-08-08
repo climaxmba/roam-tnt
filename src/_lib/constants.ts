@@ -2,7 +2,6 @@ export const paths = {
   root: "/",
   packages: "/packages",
   details: "/packages/:packageId",
-  login: "/login",
   favourites: "/favourites",
   search: "/search",
 };

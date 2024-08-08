@@ -16,7 +16,7 @@ const initialState: UserState = {
   },
 };
 
-const userSlice = createSlice({
+const bookingSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -30,4 +30,4 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice;
+export default bookingSlice;

@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import userSlice from "./slices/user";
+import bookingSlice from "./slices/booking";
 import favouritesSlice from "./slices/favourites";
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout } = bookingSlice.actions;
 export const { addToFavourites, removeFromFavourites } =
   favouritesSlice.actions;
 
 export const store = configureStore({
   reducer: {
-    user: userSlice.reducer,
+    user: bookingSlice.reducer,
     favourites: favouritesSlice.reducer,
   },
 });

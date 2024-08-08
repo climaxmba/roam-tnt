@@ -1,35 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-
-import { paths } from "./_lib/constants";
 import Home from "./pages/home/Home";
 import Error from "./pages/404/Error";
-import Login from "./pages/login/Login";
 import Details from "./pages/packages/details/Details";
 import Packages from "./pages/packages/Packages";
 import Favourites from "./pages/favourites/Favourites";
 import Search from "./pages/search/Search";
 
-import "./index.scss";
-import { Provider } from "react-redux";
+import { paths } from "./_lib/constants";
 import { store } from "./_lib/redux/store";
 
-// declare module "@mui/material/styles" {
-//   interface Theme {
-//     color: {
-//       accent: string;
-//     };
-//   }
-//   // allow configuration using `createTheme`
-//   interface ThemeOptions {
-//     color?: {
-//       accent?: string;
-//     };
-//   }
-// }
+import "./index.scss";
 
 const theme = createTheme({
   components: {
@@ -76,10 +61,6 @@ export default function App() {
           element: <Details />,
         },
       ],
-    },
-    {
-      path: paths.login,
-      element: <Login />,
     },
     {
       path: paths.favourites,
