@@ -12,7 +12,7 @@ $menu-width: 32px;
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #ffffff8f;
+  background-color: #ffffffd0;
   backdrop-filter: blur(10px);
 
   ul {
@@ -47,7 +47,7 @@ $menu-width: 32px;
   left: 0;
   right: 0;
   z-index: 11;
-  background-color: #ffffff8f;
+  background-color: #ffffffd0;
   backdrop-filter: blur(10px);
 
   :where(button, button:active, button:focus) {
@@ -101,20 +101,23 @@ $menu-width: 32px;
 
   .links {
     padding: 0;
-    display: flex;
     gap: 2rem;
     list-style: none;
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 50px;
-    height: 80vh;
-    width: 100%;
-    background-color: #ffffff;
+    top: 45px;
+    left: 15%;
+    right: 1rem;
+    min-height: 80vh;
     padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transform: translateX(100vw);
+    transition: transform ease-in-out 0.5s;
 
     &.linksOpen {
-      display: flex;
-      flex-direction: column;
+      transform: translateX(0);
     }
 
     a {

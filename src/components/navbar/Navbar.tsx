@@ -44,16 +44,6 @@ export default function Navbar() {
               Favourites
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.link
-              }
-              to={paths.login}
-            >
-              Login
-            </NavLink>
-          </li>
         </ul>
       </nav>
 
@@ -98,16 +88,6 @@ export default function Navbar() {
               to={paths.favourites}
             >
               Favourites
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.link
-              }
-              to={paths.login}
-            >
-              Login
             </NavLink>
           </li>
         </ul>
