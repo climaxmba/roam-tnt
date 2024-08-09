@@ -30,8 +30,8 @@
   {
     "id": "2",
     "image": "https://images.pexels.com/photos/3222196/pexels-photo-3222196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title": "Explore the vibrant city of Toronto, Canada! Immerse yourself in the multicultural atmosphere, world-class attractions, and stunning natural beauty. This 7-day package includes comfortable accommodations at Red Maple Hotels & Suites, a captivating Niagara Falls tour, and round-trip flights with Roam Airlines. Book your unforgettable Canadian adventure today!",
-    "description": "A trip to Toronto",
+    "title": "A Trip to Toronto",
+    "description": "Explore the vibrant city of Toronto, Canada! Immerse yourself in the multicultural atmosphere, world-class attractions, and stunning natural beauty. This 7-day package includes comfortable accommodations at Red Maple Hotels & Suites, a captivating Niagara Falls tour, and round-trip flights with Roam Airlines. Book your unforgettable Canadian adventure today!",
     "location": "Toronto, CA",
     "hotelNightsCount": 7,
     "toursCount": 1,
@@ -58,8 +58,8 @@
   {
     "id": "3",
     "image": "https://images.pexels.com/photos/17236063/pexels-photo-17236063/free-photo-of-young-woman-sitting-on-modern-chair-near-pool.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title": "Unwind and explore for 15 days on Victoria Island, Lagos!",
-    "description": "A trip to Victoria Island",
+    "title": "15 days at VI",
+    "description": "Unwind and explore for 15 days on Victoria Island, Lagos!",
     "location": "Lagos, NG",
     "hotelNightsCount": 15,
     "toursCount": 3,
