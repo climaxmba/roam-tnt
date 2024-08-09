@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { Rating } from "@mui/material";
 import {
   HotelOutlined,
   LocationOnOutlined,
@@ -9,16 +8,6 @@ import { paths } from "../../_lib/constants";
 
 import styles from "./packageItem.module.scss";
 
-interface PackageItem {
-  id: string;
-  image: string;
-  title: string;
-  location: string;
-  hotelNightsCount?: number | null;
-  toursCount: number;
-  rating: number;
-}
-
 export default function PackageItem({
   id,
   image,
@@ -26,7 +15,8 @@ export default function PackageItem({
   location,
   hotelNightsCount = null,
   toursCount,
-  rating,
+  price,
+  currency,
 }: PackageItem) {
   const navigate = useNavigate();
 
@@ -57,7 +47,7 @@ export default function PackageItem({
             ""
           )}
         </div>
-        <Rating value={rating} size="small" readOnly />
+        <p className={styles.price}>{price} {currency}</p>
       </div>
     </div>
   );

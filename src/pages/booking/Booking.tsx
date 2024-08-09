@@ -49,7 +49,8 @@ export default function Booking() {
                 location={booking.location}
                 hotelNightsCount={booking.hotelNightsCount}
                 toursCount={booking.toursCount}
-                rating={booking.rating}
+                price={booking.price}
+                currency={booking.currency}
               />
             </div>
 

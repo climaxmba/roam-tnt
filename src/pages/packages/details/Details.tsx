@@ -75,6 +75,9 @@ export default function Details() {
     navigate(paths.booking);
   };
 
+  // Go back to parent page if package id is invalid
+  if (!packageRequested) navigate(paths.packages);
+
   return (
     <>
       {error ? (
@@ -90,7 +93,12 @@ export default function Details() {
             {packageRequested?.title}
           </h1>
           <p className={styles.description}>
+            <h2>Description</h2>
             {packageRequested?.description}
+            <div className={styles.price}>
+              <h3>Price:</h3>
+              {packageRequested?.price} {packageRequested?.currency}
+            </div>
             <span className={styles.ctaButtons}>
               <Button
                 variant="outlined"

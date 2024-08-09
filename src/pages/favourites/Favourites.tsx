@@ -25,7 +25,8 @@ export default function Favourites() {
               location={item.location}
               hotelNightsCount={item.hotelNightsCount}
               toursCount={item.toursCount}
-              rating={item.rating}
+              price={item.price}
+              currency={item.currency}
             />
           )) : <p style={{fontStyle: "italic"}}>Noting's here</p>}
         </div>

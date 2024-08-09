@@ -153,7 +153,8 @@ interface PackageItem {
   location: string;
   hotelNightsCount?: number | null;
   toursCount: number;
-  rating: number;
+  price: number;
+  currency: string;
 }
 
 interface TravelPackage {

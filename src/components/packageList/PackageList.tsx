@@ -1,6 +1,6 @@
 import type React from "react";
 import { type SetStateAction, useEffect, useState } from "react";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import PackageItem from "../packageItem/PackageItem";
 // import { useSelector } from "react-redux";
 
@@ -62,7 +62,8 @@ export default function PackageList({
               location={pkg.location}
               hotelNightsCount={pkg.hotelNightsCount}
               toursCount={pkg.tours?.length || 0}
-              rating={pkg.rating}
+              price={pkg.price}
+              currency={pkg.currency}
             />
           )) : <p>No results!</p>}
         </div>
@@ -86,7 +87,7 @@ function SearchAndFilter({
         onChange={(e) => setQuery(e.target.value)}
         value={query}
       />
-      <Button
+      {/* <Button
         sx={{
           textTransform: "uppercase",
           color: "darkorange",
@@ -94,7 +95,7 @@ function SearchAndFilter({
         }}
       >
         Filters
-      </Button>
+      </Button> */}
     </div>
   );
 }
