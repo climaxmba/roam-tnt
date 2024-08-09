@@ -1,9 +1,10 @@
 $accentcolor: mediumaquamarine;
+$shadow: 0 1px 2px 3px #00000030;
 $menu-width: 32px;
 
 .container {
   color: black;
-  padding: 8px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -12,8 +13,9 @@ $menu-width: 32px;
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #ffffffd0;
+  background-color: #ffffffdf;
   backdrop-filter: blur(10px);
+  box-shadow: $shadow;
 
   ul {
     padding: 0;
@@ -39,7 +41,7 @@ $menu-width: 32px;
 
 .mobileContainer {
   display: none;
-  padding: 8px 1rem;
+  padding: 4px 1rem;
   align-items: center;
   justify-content: space-between;
   position: fixed;
@@ -47,8 +49,9 @@ $menu-width: 32px;
   left: 0;
   right: 0;
   z-index: 11;
-  background-color: #ffffffd0;
+  background-color: #ffffffdf;
   backdrop-filter: blur(10px);
+  box-shadow: $shadow;
 
   :where(button, button:active, button:focus) {
     background-color: transparent;

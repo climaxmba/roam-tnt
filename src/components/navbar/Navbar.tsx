@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { paths } from "../../_lib/constants";
+import logoSrc from "../../assets/logo.svg";
 
 import styles from "./navbar.module.scss";
 
@@ -12,7 +13,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={styles.container}>
-        <span>Roam T&T</span>
+        <Logo />
         <ul>
           <li>
             <NavLink
@@ -49,7 +50,7 @@ export default function Navbar() {
 
       {/* Mobile Navbar */}
       <nav className={styles.mobileContainer}>
-        <span>Logo</span>
+        <Logo height={45} />
         <button
           title="Menu"
           className={`${styles.menu} ${menuOpen && styles.menuOpen}`}
@@ -93,5 +94,13 @@ export default function Navbar() {
         </ul>
       </nav>
     </>
+  );
+}
+
+function Logo({ height = 60 }: { height?: number }) {
+  return (
+    <Link to={paths.root}>
+      <img src={logoSrc} height={height} alt="Roam T&T" />
+    </Link>
   );
 }
