@@ -1,12 +1,12 @@
 [
   {
     "id": "1",
-    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "image": "https://images.pexels.com/photos/2586346/pexels-photo-2586346.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "title": "Trip to Paris",
-    "description": "A trip to Paris",
+    "description": "Immerse yourself in the City of Lights for 7 unforgettable nights. This Parisian adventure includes luxurious accommodations at the Blue-Metal Hotels & Suite with a relaxing spa and daily breakfast. Explore iconic landmarks like the Eiffel Tower with a very captivating tour.",
     "location": "Paris, FR",
     "hotelNightsCount": 7,
-    "toursCount": 8,
+    "toursCount": 1,
     "rating": 4,
     "price": 2000,
     "currency": "USD",
@@ -29,8 +29,8 @@
   },
   {
     "id": "2",
-    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title": "A week in Canada",
+    "image": "https://images.pexels.com/photos/3222196/pexels-photo-3222196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Explore the vibrant city of Toronto, Canada! Immerse yourself in the multicultural atmosphere, world-class attractions, and stunning natural beauty. This 7-day package includes comfortable accommodations at Red Maple Hotels & Suites, a captivating Niagara Falls tour, and round-trip flights with Roam Airlines. Book your unforgettable Canadian adventure today!",
     "description": "A trip to Toronto",
     "location": "Toronto, CA",
     "hotelNightsCount": 7,
@@ -57,8 +57,8 @@
   },
   {
     "id": "3",
-    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "title": "15 days in VI",
+    "image": "https://images.pexels.com/photos/17236063/pexels-photo-17236063/free-photo-of-young-woman-sitting-on-modern-chair-near-pool.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Unwind and explore for 15 days on Victoria Island, Lagos!",
     "description": "A trip to Victoria Island",
     "location": "Lagos, NG",
     "hotelNightsCount": 15,
@@ -85,9 +85,9 @@
   },
   {
     "id": "4",
-    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "image": "https://images.pexels.com/photos/27586514/pexels-photo-27586514/free-photo-of-festival-time.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "title": "Trip to Tokyo",
-    "description": "A trip to Tokyo",
+    "description": "Discover the electrifying city of Tokyo on this 5-night adventure. Stay at the luxurious Highland Hotels & Suite, complete with a spa and complimentary breakfast. Unwind after a day of exploring with a soak in the spa, then fuel up for more adventures with a delicious breakfast. Explore iconic landmarks and hidden gems with included tours, starting with a visit to Ginza, the ultimate shopping district in Japan. Book your unforgettable trip to Tokyo today! (Price starts from $2000)",
     "location": "Tokyo, JP",
     "hotelNightsCount": 5,
     "toursCount": 2,
@@ -113,12 +113,12 @@
   },
   {
     "id": "5",
-    "image": "https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "image": "https://images.pexels.com/photos/7245371/pexels-photo-7245371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "title": "Party in London",
-    "description": "A trip to London",
+    "description": "Immerse yourself in the vibrant energy of London! This 2-night package includes flights with Roam Airlines, accommodation at the Harry-Potter Hotels & Suite (breakfast included!). Explore iconic landmarks, indulge in renowned British culture, and create unforgettable memories in the heart of England!",
     "location": "London, UK",
     "hotelNightsCount": 2,
-    "toursCount": 1,
+    "toursCount": 0,
     "rating": 3,
     "price": 4800,
     "currency": "GBP",
@@ -129,6 +129,28 @@
         "breakfast": true,
         "pool": false,
         "spa": false,
+        "freeWifi": true
+      }
+    }
+  },
+  {
+    "id": "6",
+    "image": "https://images.pexels.com/photos/12989147/pexels-photo-12989147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "title": "Carnival in Rio",
+    "description": "Experience the vibrant energy of Rio de Janeiro with this unforgettable carnival package. Dance the night away to infectious rhythms, soak up the sun on world-famous beaches, and explore the iconic Christ the Redeemer statue. This 5-night package includes flights, hotel accommodations, and exciting carnival experiences.",
+    "location": "Rio de Janeiro, Brazil",
+    "hotelNightsCount": 5,
+    "toursCount": 0,
+    "rating": 3,
+    "price": 3500,
+    "currency": "USD",
+    "flight": "Roam Airlines",
+    "hotel": {
+      "title": "Copacabana Palace",
+      "ammenities": {
+        "breakfast": true,
+        "pool": true,
+        "spa": true,
         "freeWifi": true
       }
     }
