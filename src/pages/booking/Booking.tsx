@@ -70,6 +70,7 @@ export default function Booking() {
                 label="Email"
                 variant="standard"
                 name="bookingEmail"
+                type="email"
                 defaultValue={userDetails.email}
                 required
               />
@@ -77,6 +78,7 @@ export default function Booking() {
                 label="Phone"
                 variant="standard"
                 name="bookingPhone"
+                type="number"
                 defaultValue={userDetails.phone}
                 required
               />

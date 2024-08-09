@@ -15,7 +15,6 @@ export default function Packages() {
           getProducts={() => Promise.resolve(travelsAPI.getTravelPackages())}
           hasPackageId={packageId ? true : false}
         />
-
         {packageId && (
           <div className={styles.packageDetails}>
             <Outlet />
