@@ -55,6 +55,44 @@ $navbar-offset: 90px;
   h1 {
     margin: 0;
   }
+
+  .carousel {
+    margin: 3rem 1rem;
+
+    .package {
+      color: white;
+      width: clamp(220px, 80%, 500px);
+      height: 45vh;
+      flex: 0 0 250px;
+      border-radius: 30%;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-shadow: -1px 1px #00000010;
+      font-size: x-large;
+
+      img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.8);
+        background-color: teal;
+        pointer-events: none;
+      }
+
+      & > *:not(img) {
+        z-index: 1;
+        position: relative;
+        margin: 0;
+      }
+    }
+  }
 }
 
 .popularDestinations {
@@ -111,12 +149,12 @@ $navbar-offset: 90px;
         padding: 1rem 2.5rem;
         text-align: left;
 
-        &>*:first-child {
+        & > *:first-child {
           font-size: xx-large;
           font-weight: 700;
         }
 
-        &>*:nth-child(2) {
+        & > *:nth-child(2) {
           font-weight: 500;
         }
       }

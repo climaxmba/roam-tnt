@@ -1,16 +1,22 @@
-import { Button } from "@mui/material";
-import Layout from "../../components/layout/Layout";
-import SearchForms from "../../components/searchForms/SearchForms";
+import { SetStateAction, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import landingBgS from "../../assets/landing/landingbgS.jpg";
 import landingBgM from "../../assets/landing/landingbgM.jpg";
 import landingBgL from "../../assets/landing/landingbgL.jpg";
-
 import burjKhalifa from "../../assets/destinations/Burjkhalifa.jpg";
 import ginza from "../../assets/destinations/Ginza.jpg";
 import niagaraFalls from "../../assets/destinations/NiagaraFalls.jpg";
 import victoriaIsland from "../../assets/destinations/VictoriaIsland.jpeg";
 
+import { Button, Rating } from "@mui/material";
+import travelsAPI from "../../_lib/modules/travelsAPI";
+import Layout from "../../components/layout/Layout";
+import SearchForms from "../../components/searchForms/SearchForms";
+import { paths } from "../../_lib/constants";
+import Carousel from "react-multi-carousel";
+
+import "react-multi-carousel/lib/styles.css";
 import styles from "./home.module.scss";
 
 export default function Home() {
@@ -24,6 +30,8 @@ export default function Home() {
 }
 
 function Landing() {
+  const navigate = useNavigate();
+
   return (
     <main className={styles.landing}>
       <img
@@ -39,13 +47,53 @@ function Landing() {
         Planning a trip for work or vacation? At Roam Tavel & Tours, we've got
         your back!
       </p>
-      <Button variant="contained">See Packages</Button>
+      <Button variant="contained" onClick={() => navigate(paths.packages)}>
+        See Packages
+      </Button>
       <SearchForms />
     </main>
   );
 }
 
 function FeaturedPackages() {
+  const [packages, setPackages] = useState<TravelPackage[] | []>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setPackages(
+          (await travelsAPI.getTravelPackages()) as SetStateAction<
+            TravelPackage[] | []
+          >
+        );
+      } catch {
+        setError(true);
+      }
+      setLoading(false);
+    })();
+  }, []);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <section className={styles.featuredPackages}>
       <h1>Featured Packages</h1>
@@ -53,6 +101,28 @@ function FeaturedPackages() {
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque,
         laborum?
       </p>
+
+      {error ? (
+        <p>Add error occured</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : (
+        <Carousel
+          autoPlay
+          infinite
+          autoPlaySpeed={6000}
+          responsive={responsive}
+          className={styles.carousel}
+        >
+          {packages.map((pkg) => (
+            <div key={pkg.id} className={styles.package}>
+              <img src={pkg.image} alt="" />
+              <h2>{pkg.title}</h2>
+              <Rating value={pkg.rating} />
+            </div>
+          ))}
+        </Carousel>
+      )}
     </section>
   );
 }
