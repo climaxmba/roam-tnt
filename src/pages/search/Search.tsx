@@ -40,14 +40,30 @@ export default function Search() {
       <div className={styles.container}>
         <SearchForms setSearchParams={setSearchParams} />
         {loading ? (
-          <Loading />
+          <section className={styles.list}>
+            <Loading />
+          </section>
         ) : error ? (
-          <LoadingError message={error.message} />
+          <section className={styles.list}>
+            <LoadingError message={error.message} />
+          </section>
         ) : (
           <section className={styles.list}>
-            {flightOffers.map((offer) => (
-              <FlightItem {...offer} key={offer.id} />
-            ))}
+            {flightOffers.length ? (
+              flightOffers.map((offer) => (
+                <FlightItem {...offer} key={offer.id} />
+              ))
+            ) : (
+              <p
+                style={{
+                  fontSize: "large",
+                  textAlign: "center",
+                  fontStyle: "italic",
+                }}
+              >
+                No Offers!
+              </p>
+            )}
           </section>
         )}
       </div>

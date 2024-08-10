@@ -1,5 +1,3 @@
-
-
 # Roam Travel &amp; Tours
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/483a9e02-976b-4295-8f96-f6a37d1a2223/deploy-status)](https://app.netlify.com/sites/climaxmba-roamtnt/deploys)
