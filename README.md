@@ -11,7 +11,7 @@ A demo project for a Travel & Tours website built with React and TypeScript.
 1. **Package Details:** Detailed views for each travel package with information like price and description.
 2. **Booking:** A form for users to book packages and save their details on the browser.
 4. **Favorite Packages:** Allows users to mark travel packages as favorites.
-5. **Flights Searh**
+5. **Flights Search**
 
 ## 🚀 Usage
 
