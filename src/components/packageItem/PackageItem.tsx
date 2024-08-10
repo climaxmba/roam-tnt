@@ -47,7 +47,7 @@ export default function PackageItem({
             ""
           )}
         </div>
-        <p className={styles.price}>{price} {currency}</p>
+        <p className={styles.price}>{price.toLocaleString()} {currency}</p>
       </div>
     </div>
   );

@@ -97,7 +97,7 @@ export default function Details() {
             {packageRequested?.description}
             <div className={styles.price}>
               <h3>Price:</h3>
-              {packageRequested?.price} {packageRequested?.currency}
+              {packageRequested?.price.toLocaleString()} {packageRequested?.currency}
             </div>
             <span className={styles.ctaButtons}>
               <Button
