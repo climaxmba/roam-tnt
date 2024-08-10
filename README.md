@@ -26,7 +26,3 @@ A demo project for a Travel & Tours website built with React and TypeScript.
 - [MUI](https://mui.com/) - React component library & icons.
 - [react-multi-carousel](https://www.npmjs.com/package/react-multi-carousel) - Carousel component.
 - [Pexels](https://www.pexels.com) - Images.
-
-## ⚠ Known issues
-
-- Authorization in flights search API is volatile. It expires within a short period of time.

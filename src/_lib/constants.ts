@@ -8,3 +8,4 @@ export const paths = {
 };
 
 export const KEY: string = import.meta.env.VITE_API_KEY;
+export const SECRET: string = import.meta.env.VITE_API_SECRET;
